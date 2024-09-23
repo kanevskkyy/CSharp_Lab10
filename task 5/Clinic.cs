@@ -95,5 +95,17 @@ namespace task_5
             return false;
         }
 
+        public void Print()
+        {
+            foreach (Pet pet in Rooms) 
+            {
+                Console.WriteLine(pet);
+            }
+        }
+
+        public void PrintRoom(int index)
+        {
+            Console.WriteLine(Rooms[index - 1]);
+        }
     }
 }
