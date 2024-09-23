@@ -85,5 +85,15 @@ namespace task_5
 
             return false;
         }
+
+        public bool HasEmptyRooms()
+        {
+            for(int i = 0; i < Rooms.Count; i++)
+            {
+                if (Rooms[i] == null) return true;
+            }
+            return false;
+        }
+
     }
 }
