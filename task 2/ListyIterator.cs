@@ -17,6 +17,14 @@ namespace task_2
             index = 0;
         }
 
+        public void PrintAll()
+        {
+            foreach (T element in elements)
+            {
+                Console.Write(element + " ");
+            }
+        }
+
         public void AddElement(T element)
         {
             elements.Add(element);
