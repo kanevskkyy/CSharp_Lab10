@@ -13,7 +13,6 @@ namespace task_4
             int result = firstPerson.Name.Length.CompareTo(secondPerson.Name.Length);
             
             if (result == 0) result = string.Compare(firstPerson.Name.ToLower()[0].ToString(), secondPerson.Name.ToLower()[0].ToString());
-
             return result;
         }
     }
