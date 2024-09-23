@@ -12,6 +12,13 @@ namespace task_3
         public int Age { get; set; }
         public string City { get; set; }
 
+        public Person(string name, int age, string city)
+        {
+            Name = name;
+            Age = age;
+            City = city;
+        }
+
         public int CompareTo(Person other)
         {
             int nameComparison = Name.CompareTo(other.Name);
