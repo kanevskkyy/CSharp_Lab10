@@ -23,6 +23,7 @@ namespace task_2
             {
                 Console.Write(element + " ");
             }
+            Console.WriteLine();
         }
 
         public void AddElement(T element)
