@@ -12,6 +12,8 @@ namespace task_5
         private List<Pet> Rooms;
         private int centerRoom;
 
+        public Clinic() { }
+
         public Clinic(string clinicName, int roomAmount)
         {
             ClinicName = clinicName;
@@ -25,40 +27,48 @@ namespace task_5
 
         public bool AddPet(Pet pet)
         {
-            if (Rooms[centerRoom] == null)
+            int isFree = 0;
+            for(int i = 0; i < Rooms.Count; i++)
             {
-                Rooms[centerRoom] = pet;
-                return true;
-            }
-            if (Rooms[centerRoom - 1] == null) 
-            {
-                Rooms[centerRoom - 1] = pet;
-                return true;
-            }
-            if (Rooms[centerRoom + 1] == null)
-            { 
-                Rooms[centerRoom + 1] = pet;
-                return true;
+                if (Rooms[i] == null) isFree++;
             }
 
-            for(int i = 0; i < centerRoom - 1; i++)
+            if (isFree > 0)
             {
-                if (Rooms[i] == null)
+                if (Rooms[centerRoom] == null)
                 {
-                    Rooms[i] = pet;
+                    Rooms[centerRoom] = pet;
                     return true;
                 }
-            }
+                if (Rooms[centerRoom - 1] == null)
+                {
+                    Rooms[centerRoom - 1] = pet;
+                    return true;
+                }
+                if (Rooms[centerRoom + 1] == null)
+                {
+                    Rooms[centerRoom + 1] = pet;
+                    return true;
+                }
 
-            for(int i = centerRoom + 1; i < Rooms.Count; i++)
-            {
-                if (Rooms[i] == null)
+                for (int i = 0; i < centerRoom - 1; i++)
                 {
-                    Rooms[i] = pet;
-                    return true;
+                    if (Rooms[i] == null)
+                    {
+                        Rooms[i] = pet;
+                        return true;
+                    }
+                }
+
+                for (int i = centerRoom + 1; i < Rooms.Count; i++)
+                {
+                    if (Rooms[i] == null)
+                    {
+                        Rooms[i] = pet;
+                        return true;
+                    }
                 }
             }
-            
             return false; 
         }
 
@@ -97,15 +107,19 @@ namespace task_5
 
         public void Print()
         {
+            int counter = 0;
             foreach (Pet pet in Rooms) 
             {
+                counter++;
                 Console.WriteLine(pet);
             }
+            if (counter == 0) Console.WriteLine("All rooms are empty!!!");
         }
 
         public void PrintRoom(int index)
         {
-            Console.WriteLine(Rooms[index - 1]);
+            if (Rooms[index] != null) Console.WriteLine(Rooms[index]);
+            else Console.WriteLine("Room empty!");
         }
     }
 }

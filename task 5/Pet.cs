@@ -13,6 +13,8 @@ namespace task_5
         public int Age { get; set; }
         public string Kind { get; set; }
 
+        public Pet() { }
+
         public Pet(string name, int age, string kind)
         {
             Name = name;
